@@ -1,0 +1,19 @@
+using System;
+//Creating array of odd numbers; displaying it in acsending and descending order					
+public class Program
+{
+	public static void Main()
+	{
+		int[] myArray = new int[50];
+		int m = 0;
+		for (int i = 1; i < 100; i+= 2){
+				myArray[m] = i;
+				Console.Write(myArray[m].ToString() + " ");
+				m++;
+			}
+		Console.WriteLine();
+		for (int i=myArray.Length - 1; i >= 0; i--){
+			Console.Write(myArray[i].ToString() + " ");
+		}	
+	}
+}
