@@ -1,0 +1,58 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Random random = new Random();
+		int[] myArray = {9, 1, 2, 3, 4, 5, 6, 10, 7, 14};
+		int max = 0, min = 100;
+		int posmax=0, posmin=0;
+		//displaying original array
+		for (int i = 0; i < myArray.Length; i++)
+		{
+			Console.Write(myArray[i] + " ");
+		}
+		Console.WriteLine();
+		
+		//finding max value
+		for (int i = 0; i < myArray.Length; i++)
+		{
+			if (max < myArray[i])
+			{
+				max = myArray[i];
+				posmax = i;
+			}
+		}
+		
+		//deleting max value
+		Console.WriteLine("Deleted maximal element myArray[{0}] = {1}", posmax, max);
+		for (int i = posmax; i < myArray.Length-1; i++)
+		{
+			myArray[i] = myArray[i+1];
+		}
+		
+		//finding min value
+		for (int i = 0; i < myArray.Length; i++)
+		{
+			if (min > myArray[i])
+				{
+					min = myArray[i];
+					posmin = i;
+				}
+		}
+		
+		//deleting min value
+		Console.WriteLine("Deleted minimum element myArray[{0}] = {1}", posmin, min);
+		for (int i = posmin; i < myArray.Length-1; i++)
+		{
+			myArray[i] = myArray[i+1];
+		}
+
+		//displaying edited array
+		for (int i = 0; i < myArray.Length-2; i++)
+		{
+			Console.Write(myArray[i] + " ");
+		}
+	}
+}
