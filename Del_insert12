@@ -1,0 +1,60 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		//Swapping first negative and last positive elements of myArray
+		Random random = new Random();
+		int[] myArray = new int[10];
+		for (int i = 0; i < myArray.Length; i++){
+			myArray[i] = random.Next(-20, 20);
+			Console.Write(myArray[i] + " ");
+		}
+		
+		int posplus = -1, plus = 0;
+		int posmin = -1, min = 0;
+		Console.WriteLine();
+		
+		//finding first negative value
+		int k = 0;
+		while (posmin == -1)
+		{
+			if (myArray[k] < 0)
+			{
+				min = myArray[k];
+				posmin = k;
+			}
+			k++;
+		}
+		
+		//finding last positive value
+		for (int i=0; i < myArray.Length; i++)
+		{
+			if (myArray[i] > 0)
+			{
+				plus = myArray[i];
+				posplus = i;
+			}
+		}
+		
+		if (posmin != -1 & posplus != -1)
+		{			
+			//swapping values
+			Console.WriteLine("Swapped first negative ({0}) and last positive ({1}) elements of myArray", min, plus);
+			int buf = myArray[posmin];
+			myArray[posmin] = myArray[posplus];
+			myArray[posplus] = buf;
+			Console.Write("Changed array: ");
+			for (int i = 0; i < myArray.Length; i++)
+			{
+				Console.Write(myArray[i] + " ");
+			}
+		}
+		else
+		{
+			Console.WriteLine("Cannot swap values because there are not any negative/positive values");
+		}
+			
+	}
+}
