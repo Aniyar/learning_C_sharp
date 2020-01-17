@@ -1,0 +1,47 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		//displaying original array
+		Random random = new Random();
+		int[] myArray = new int[10];
+		for (int i = 0; i < myArray.Length - 2; i++){
+			myArray[i] = random.Next(0, 20);
+			Console.Write(myArray[i] + " ");
+		}
+		int max = 0, posmax = 0;
+		
+		Console.WriteLine();
+		
+		//finding max value
+		for (int i = 0; i < myArray.Length; i++)
+		{
+			if (max < myArray[i])
+			{
+				max = myArray[i];
+				posmax = i;
+			}
+		}
+		
+		//inserting numbers before and after max value
+		int newn1 = 8, newn2 = 10;
+		Console.WriteLine("inserted elements {0} and {1} before and after maximum {2}", newn1, newn2, max);
+		for (int i = myArray.Length - 2; i >= posmax; i--)
+		{
+			myArray[i+1] = myArray[i];
+		}
+		myArray[posmax] = newn1;
+		for (int i = myArray.Length - 3; i >= posmax+1; i--)
+		{
+			myArray[i+1] = myArray[i];
+		}
+		myArray[posmax+2] = newn2;
+		//displaying edited array
+		for (int i = 0; i < myArray.Length; i++)
+		{
+			Console.Write(myArray[i] + " ");
+		}
+	}
+}
